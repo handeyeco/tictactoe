@@ -1,12 +1,10 @@
 /* jshint esversion: 6 */
 /* jshint expr: true */
 
-import chai from 'chai';
+import { expect, should } from 'chai';
 import isGameOver from '../src/scripts/isGameOver.js';
 
-let expect = chai.expect;
-
-describe('Check Game Over', () => {
+describe('Check Game Over (isGameOver)', () => {
 
   describe('Checks if game is over', () => {
 
@@ -19,7 +17,7 @@ describe('Check Game Over', () => {
         ]
       };
 
-      expect(isGameOver(state)).to.be.true;
+      expect(isGameOver(state)).to.equal(1);
 
     });
 
@@ -32,7 +30,7 @@ describe('Check Game Over', () => {
         ]
       };
 
-      expect(isGameOver(state)).to.be.true;
+      expect(isGameOver(state)).to.equal(2);
 
     });
 
@@ -45,7 +43,7 @@ describe('Check Game Over', () => {
         ]
       };
 
-      expect(isGameOver(state)).to.be.true;
+      expect(isGameOver(state)).to.equal(3);
 
     });
   });
@@ -61,7 +59,7 @@ describe('Check Game Over', () => {
         ]
       };
 
-      expect(isGameOver(state)).to.be.true;
+      expect(isGameOver(state)).to.equal(1);
 
     });
 
@@ -74,7 +72,7 @@ describe('Check Game Over', () => {
         ]
       };
 
-      expect(isGameOver(state)).to.be.true;
+      expect(isGameOver(state)).to.equal(2);
 
     });
 
@@ -87,14 +85,14 @@ describe('Check Game Over', () => {
         ]
       };
 
-      expect(isGameOver(state)).to.be.true;
+      expect(isGameOver(state)).to.equal(1);
 
     });
   });
 
   describe('Does not return false positive', () => {
 
-    it('returns false on empty board', () => {
+    it('returns 0 on empty board', () => {
       let state = {
         board: [
           [0,0,0],
@@ -103,11 +101,24 @@ describe('Check Game Over', () => {
         ]
       };
 
-      expect(isGameOver(state)).to.be.true;
+      expect(isGameOver(state)).to.equal(0);
 
     });
 
-    it('returns false on a near win', () => {
+    it('returns 0 on sparse board', () => {
+      let state = {
+        board: [
+          [2,1,0],
+          [0,0,0],
+          [0,2,1]
+        ]
+      };
+
+      expect(isGameOver(state)).to.equal(0);
+
+    });
+
+    it('returns 0 on a near win', () => {
       let state = {
         board: [
           [2,2,0],
@@ -116,7 +127,7 @@ describe('Check Game Over', () => {
         ]
       };
 
-      expect(isGameOver(state)).to.be.true;
+      expect(isGameOver(state)).to.equal(0);
 
     });
   });
