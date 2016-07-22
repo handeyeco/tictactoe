@@ -2,7 +2,7 @@
 /* jshint expr: true */
 
 import { expect, should } from 'chai';
-import computerMove from '../src/scripts/computerMove';
+import computerMove from '../src/scripts/computerMove.js';
 
 describe("Computer Moves (computerMove)", () => {
   /////////////////////
@@ -17,10 +17,11 @@ describe("Computer Moves (computerMove)", () => {
           [0,0,0],
           [0,0,0]
         ],
-        computerIs: 1
+        computerIs: 1,
+        moveCount: 0
       };
 
-      expect(computerMove(state)).to.equal(
+      expect(computerMove(state)).to.deep.equal(
         {board: [
             [1,0,0],
             [0,0,0],
@@ -36,10 +37,11 @@ describe("Computer Moves (computerMove)", () => {
           [0,0,0],
           [0,0,0]
         ],
-        computerIs: 2
+        computerIs: 2,
+        moveCount: 1
       };
 
-      expect(computerMove(state)).to.equal(
+      expect(computerMove(state)).to.deep.equal(
         {board: [
             [1,0,0],
             [0,2,0],
@@ -55,10 +57,11 @@ describe("Computer Moves (computerMove)", () => {
           [0,1,0],
           [0,0,0]
         ],
-        computerIs: 2
+        computerIs: 2,
+        moveCount: 1
       };
 
-      expect(computerMove(state)).to.equal(
+      expect(computerMove(state)).to.deep.equal(
         {board: [
             [2,0,0],
             [0,1,0],

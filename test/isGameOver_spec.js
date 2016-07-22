@@ -2,6 +2,7 @@
 /* jshint expr: true */
 
 import { expect, should } from 'chai';
+import makeBoardArr from '../src/scripts/makeBoardArr.js';
 import isGameOver from '../src/scripts/isGameOver.js';
 
 describe('Check Game Over (isGameOver)', () => {
@@ -16,8 +17,9 @@ describe('Check Game Over (isGameOver)', () => {
           [0,0,0]
         ]
       };
+      const boardArr = makeBoardArr(state);
 
-      expect(isGameOver(state)).to.equal(1);
+      expect(isGameOver(state, boardArr)).to.equal(1);
 
     });
 
@@ -29,21 +31,23 @@ describe('Check Game Over (isGameOver)', () => {
           [0,0,0]
         ]
       };
+      const boardArr = makeBoardArr(state);
 
-      expect(isGameOver(state)).to.equal(2);
+      expect(isGameOver(state, boardArr)).to.equal(2);
 
     });
 
     it('works for when game is a tie', () => {
       const state = {
         board: [
-          [2,1,1],
-          [1,2,2],
-          [2,1,1]
+          [1,2,3],
+          [4,5,6],
+          [7,8,9]
         ]
       };
+      const boardArr = makeBoardArr(state);
 
-      expect(isGameOver(state)).to.equal(3);
+      expect(isGameOver(state, boardArr)).to.equal(3);
 
     });
   });
@@ -58,8 +62,9 @@ describe('Check Game Over (isGameOver)', () => {
           [0,0,0]
         ]
       };
+      const boardArr = makeBoardArr(state);
 
-      expect(isGameOver(state)).to.equal(1);
+      expect(isGameOver(state, boardArr)).to.equal(1);
 
     });
 
@@ -71,8 +76,9 @@ describe('Check Game Over (isGameOver)', () => {
           [2,0,0]
         ]
       };
+      const boardArr = makeBoardArr(state);
 
-      expect(isGameOver(state)).to.equal(2);
+      expect(isGameOver(state, boardArr)).to.equal(2);
 
     });
 
@@ -84,8 +90,9 @@ describe('Check Game Over (isGameOver)', () => {
           [0,0,1]
         ]
       };
+      const boardArr = makeBoardArr(state);
 
-      expect(isGameOver(state)).to.equal(1);
+      expect(isGameOver(state, boardArr)).to.equal(1);
 
     });
   });
@@ -100,8 +107,9 @@ describe('Check Game Over (isGameOver)', () => {
           [0,0,0]
         ]
       };
+      const boardArr = makeBoardArr(state);
 
-      expect(isGameOver(state)).to.equal(0);
+      expect(isGameOver(state, boardArr)).to.equal(0);
 
     });
 
@@ -113,8 +121,9 @@ describe('Check Game Over (isGameOver)', () => {
           [0,2,1]
         ]
       };
+      const boardArr = makeBoardArr(state);
 
-      expect(isGameOver(state)).to.equal(0);
+      expect(isGameOver(state, boardArr)).to.equal(0);
 
     });
 
@@ -126,8 +135,9 @@ describe('Check Game Over (isGameOver)', () => {
           [0,1,1]
         ]
       };
+      const boardArr = makeBoardArr(state);
 
-      expect(isGameOver(state)).to.equal(0);
+      expect(isGameOver(state, boardArr)).to.equal(0);
 
     });
   });

@@ -1,11 +1,8 @@
 /* jshint esversion: 6 */
 
-function isGameOver (state) {
+function isGameOver(state, boardArr) {
 
   const board = state.board;
-  //boardArr starts with the three
-  //horizontal rows
-  let boardArr = board;
   //Will return (falsey = continue, truthey = game over)
   //0 = game should continue
   //1 = game over [1] wins
@@ -24,27 +21,6 @@ function isGameOver (state) {
   if (flatBoard.filter(Boolean).length === 9) {
     result = 3;
   }
-
-  //Iterate over board to add
-  //vertical rows to boardArr
-  board[0].forEach((elem, idx) => {
-    boardArr.push([
-      board[0][idx],
-      board[1][idx],
-      board[2][idx]
-    ]);
-  });
-
-  //Grab the two diagonals
-  board.push([
-    board[0][0],
-    board[1][1],
-    board[2][2]
-  ], [
-    board[0][2],
-    board[1][1],
-    board[2][0]
-  ]);
 
   //Check each row to see if it's a win
   boardArr.forEach(elem => {
