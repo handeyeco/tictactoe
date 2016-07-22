@@ -9,7 +9,7 @@ describe('Check Game Over (isGameOver)', () => {
   describe('Checks if game is over', () => {
 
     it('works for when game is won for x', () => {
-      let state = {
+      const state = {
         board: [
           [1,1,1],
           [0,0,0],
@@ -22,7 +22,7 @@ describe('Check Game Over (isGameOver)', () => {
     });
 
     it('works for when game is won for y', () => {
-      let state = {
+      const state = {
         board: [
           [2,2,2],
           [0,0,0],
@@ -35,7 +35,7 @@ describe('Check Game Over (isGameOver)', () => {
     });
 
     it('works for when game is a tie', () => {
-      let state = {
+      const state = {
         board: [
           [2,1,1],
           [1,2,2],
@@ -51,7 +51,7 @@ describe('Check Game Over (isGameOver)', () => {
   describe('Can check in all directions', () => {
 
     it('works for when game is won horizontally', () => {
-      let state = {
+      const state = {
         board: [
           [1,1,1],
           [0,0,0],
@@ -64,7 +64,7 @@ describe('Check Game Over (isGameOver)', () => {
     });
 
     it('works for when game is won vertically', () => {
-      let state = {
+      const state = {
         board: [
           [2,0,0],
           [2,0,0],
@@ -77,7 +77,7 @@ describe('Check Game Over (isGameOver)', () => {
     });
 
     it('works for when game is won diagonally', () => {
-      let state = {
+      const state = {
         board: [
           [1,0,0],
           [0,1,0],
@@ -93,7 +93,7 @@ describe('Check Game Over (isGameOver)', () => {
   describe('Does not return false positive', () => {
 
     it('returns 0 on empty board', () => {
-      let state = {
+      const state = {
         board: [
           [0,0,0],
           [0,0,0],
@@ -106,7 +106,7 @@ describe('Check Game Over (isGameOver)', () => {
     });
 
     it('returns 0 on sparse board', () => {
-      let state = {
+      const state = {
         board: [
           [2,1,0],
           [0,0,0],
@@ -119,7 +119,7 @@ describe('Check Game Over (isGameOver)', () => {
     });
 
     it('returns 0 on a near win', () => {
-      let state = {
+      const state = {
         board: [
           [2,2,0],
           [2,2,1],

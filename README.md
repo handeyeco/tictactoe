@@ -17,5 +17,6 @@ First it checks if the board is full; if so `result` is `3`. Then it creates a 2
 >__isGameOver(state)__
 >returns:
 >  * 0 to continue
->  * 1 or 2 for a win
+>  * 1 for X win
+>  * 2 for O win
 >  * 3 for a tie
