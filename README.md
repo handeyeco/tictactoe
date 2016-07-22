@@ -6,6 +6,12 @@ I created this new game, that I like to call __Tic Tac Toe__.
 
 ##Development
 
+###Day 2
+
+Refactored `makeBoardArr` out of `isGameOver` and wrote tests for it. Going to pass `boardArr` to the new function `computerMove`.
+
+Started writing tests for `computerMove` which is a function that calls smaller functions to make first move, block, and strategize.
+
 ###Day 1
 
 In an effort to do this project in the BDD style, I started off with Mocha/Chai tests; specifically for the first function `isGameOver`.
