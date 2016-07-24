@@ -9,7 +9,7 @@ function computerMove(state) {
 
   // Handle computer's first move
   if (moveCount < 2) {
-    return computerFirstMove(board, computerIs, moveCount);
+    return computerFirstMove(board, computerIs);
   }
 
 }
@@ -23,28 +23,26 @@ function computerShouldBlock () {
 }
 
 function computerShouldStartLine () {
-  
+
 }
 
 /////////////////////
 /////////////////////
-//computerFirstMove is hard coded
-//resulting in only three possible
-//first moves
+//computerFirstMove
+//results in only three
+//possible first moves
 /////////////////////
 /////////////////////
-function computerFirstMove(board, computerIs, moveCount) {
+function computerFirstMove(board, computerIs) {
 
   let boardResult = board;
 
   // First move if computer is X
   if (computerIs === 1) {
     // Take corner
-    return {board: [
-        [1,0,0],
-        [0,0,0],
-        [0,0,0]
-    ]};
+    boardResult[0][0] = 1;
+
+    return {board: boardResult};
   }
 
   // First move if computer is  O

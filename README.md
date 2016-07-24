@@ -1,6 +1,6 @@
 #Tic Tac Toe
 
-I created this new game, that I like to call __Tic Tac Toe__.
+I created this new game that I like to call __Tic Tac Toe__.
 
 (It's a FCC project)
 
