@@ -4,7 +4,7 @@
   "description": "FCC Tic Tac Toe Game",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --recursive",
+    "test": "mocha --compilers js:babel-core/register --recursive -R spec",
     "start": "NODE_ENV=development webpack-dev-server --inline --hot",
     "build": "webpack -p --config webpack.config.prod.js",
     "watch-css": "node-sass -w src/styles/ -o dist/styles/"

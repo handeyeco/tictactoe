@@ -1,7 +1,17 @@
 /* jshint esversion: 6 */
 
-function makeBoardArr(state) {
+function makeBoardObj(state) {
   const board = state.board;
+  const coord = [
+    [[0, 0],[0, 1],[0, 2]], // Horizontal 1
+    [[1, 0],[1, 1],[1, 2]], // Horizontal 2
+    [[2, 0],[2, 1],[2, 2]], // Horizontal 3
+    [[0, 0],[1, 0],[2, 0]], // Vertical 1
+    [[0, 1],[1, 1],[2, 1]], // Vertical 2
+    [[0, 2],[1, 2],[2, 2]], // Vertical 3
+    [[0, 0],[1, 1],[2, 2]], // Diagonal 1
+    [[0, 2],[1, 1],[2, 0]]  // Diagonal 2
+  ];
   //boardArr starts with the three
   //horizontal rows
   //with copy of board array
@@ -28,7 +38,7 @@ function makeBoardArr(state) {
     board[2][0]
   ]);
 
-  return boardArr;
+  return { boardArr, coord };
 }
 
 module.exports = makeBoardArr;
