@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tiny Tic Tac Toe</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" href="main.css" />
 </head>
 <body>
-  <p>Tiny Tic Tac Toe</p>
+  <div class="container">
 
-  <div class="ttt-row">
-    <button class="ttt-square" id="00"></button>
-    <button class="ttt-square" id="01"></button>
-    <button class="ttt-square" id="02"></button>
-  </div>
-  <div class="ttt-row">
-    <button class="ttt-square" id="10"></button>
-    <button class="ttt-square" id="11"></button>
-    <button class="ttt-square" id="12"></button>
-  </div>
-  <div class="ttt-row">
-    <button class="ttt-square" id="20"></button>
-    <button class="ttt-square" id="21"></button>
-    <button class="ttt-square" id="22"></button>
-  </div>
-  <div class="ttt-selection">
-    <button class="ttt-selector green" id="pick-green"></button>
-    <button class="ttt-selector blue active" id="pick-blue"></button>
+    <div class="ttt-row">
+      <button class="ttt-square" id="00"></button>
+      <button class="ttt-square" id="01"></button>
+      <button class="ttt-square" id="02"></button>
+    </div>
+    <div class="ttt-row">
+      <button class="ttt-square" id="10"></button>
+      <button class="ttt-square" id="11"></button>
+      <button class="ttt-square" id="12"></button>
+    </div>
+    <div class="ttt-row">
+      <button class="ttt-square" id="20"></button>
+      <button class="ttt-square" id="21"></button>
+      <button class="ttt-square" id="22"></button>
+    </div>
+    <div class="ttt-selection">
+      <button class="ttt-selector green" id="pick-green"></button>
+      <button class="ttt-selector blue active" id="pick-blue"></button>
+      <button class="tie-marker" id="tie-marker"></button>
+    </div>
+
+    <h1>Tic Tac Toe</h1>
+    
   </div>
 
-  <p id="score">0 / 0</p>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="main.js"></script>

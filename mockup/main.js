@@ -1,6 +1,10 @@
 /* jQuery onload */ $(function () {
 
-// Data
+/************/
+/************/
+/* * Data * */
+/************/
+/************/
 var state = {
   userIs: "blue",
   computerIs: "green",
@@ -10,10 +14,45 @@ var state = {
   ties: 0
 };
 
-// jQuery Selectors
-var gameButtons = $(".ttt-row > button");
+/*************/
+/*************/
+/* Selectors */
+/*************/
+/*************/
+var gameButtons = $(".ttt-square"),
+    colorSelectors = $(".ttt-selector"),
+    tieMarker = $("#tie-marker"),
+    pickGreen = $('#pick-green'),
+    pickBlue = $('#pick-blue');
 
-// Functions
+/*************/
+/*************/
+/* Functions */
+/*************/
+/*************/
+
+function changeColor(e) {
+  var selection = $(e.target).hasClass("green") ? "green" : "blue";
+
+  if (state.userIs === selection) { return; }
+
+  $(colorSelectors).removeClass("active");
+
+  state.userIs = selection;
+  state.computerIs = selection === "green" ? "blue" : "green";
+  state.greenWins = 0;
+  state.blueWins = 0;
+  state.ties = 0;
+
+  if (selection === "green") {
+    $("#pick-green").addClass("active");
+  } else {
+    $("#pick-blue").addClass("active");
+  }
+
+  resetBoard();
+}
+
 function resetBoard() {
   updateScore();
 
@@ -39,11 +78,10 @@ function resetBoard() {
 }
 
 function updateScore() {
-  //Grab the scores and make a string
-  var score = state.greenWins + " / " + state.blueWins + " / " + state.ties;
-
-  //Update string in view
-  $('#score').text(score);
+  //Update scores in boxes
+  $(pickGreen).html(state.greenWins);
+  $(pickBlue).html(state.blueWins);
+  $(tieMarker).html(state.ties);
 }
 
 function rand0_2() {
@@ -64,18 +102,20 @@ function rand0_2() {
 
 function computerMove() {
   //If it's the user's turn, return early
-  //if (state.userTurn) { return; }
+  if (state.userTurn) { return; }
 
   //Pick a random number for row and column
   var row = rand0_2(),
       col = rand0_2(),
       gameOver;
 
+  //Keep looking for an empty spot
   while (state.board[row][col]) {
     row = rand0_2();
     col = rand0_2();
   }
 
+  //Take the first open spot found
   state.board[row][col] = state.computerIs;
 
   $("#" + row + col).addClass(state.computerIs);
@@ -86,7 +126,7 @@ function computerMove() {
 
 function handleUserSelection(event) {
   //If it's not the user's turn, return early
-  //if (!state.userTurn) { return; }
+  if (!state.userTurn) { return; }
 
   //Extract the square position from event
   var id = event.target.id,
@@ -148,40 +188,45 @@ function isGameOver() {
   ]
 
   bigBoard.forEach(function (elem, idx) {
+    //Check if the line is full
     if (elem[0] && elem[1] && elem[2]) {
       fullLine++;
 
+      //Check if there is a winner
       if (elem[0] === elem[1] && elem[1] === elem[2]) {
+        //Note who won
         if (elem[0] === "green") {
-          console.log("Green " + idx);
           greenWon = true;
         } else if (elem[0] === "blue") {
-          console.log("Blue " + idx);
           blueWon = true;
         }
       }
     }
   });
 
+  //Update score and return win/tie
   if (greenWon) {
     state.greenWins++;
-    console.log("green");
     return "green";
   } else if (blueWon) {
     state.blueWins++;
-    console.log("blue");
     return "blue";
   } else if (fullLine === 8) {
     state.ties++;
-    console.log("tie");
     return "tie";
   }
 
+  //False if no winner
   return false;
 }
 
-// Setup game
+/**************/
+/**************/
+/* Setup game */
+/**************/
+/**************/
 resetBoard();
 $(gameButtons).click(handleUserSelection);
+$(colorSelectors).click(changeColor);
 
 }); /* end jQuery wrapper */

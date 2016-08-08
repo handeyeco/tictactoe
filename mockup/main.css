@@ -5,24 +5,30 @@ body {
   color: white;
 }
 
-.ttt-selection {
-  margin-top: 1em;
-}
-
-.ttt-selection * {
-  margin: 0 0.5em;
+h1 {
+  /*display: none;*/
 }
 
 .ttt-selection > .active,
 .ttt-square:focus {
-  outline: 1px dashed white;
+  outline: 4px dashed white;
 }
 
 button {
-  height: 1em;
-  width: 1em;
+  height: 20vh;
+  width: 28vw;
+  max-height: 28vw;
+  max-width: 20vh;
   border: none;
   background: white;
+  margin: 5px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+button:focus, button:active {
+  outline: none;
 }
 
 .green, .ttt-row > .green  {
@@ -31,4 +37,18 @@ button {
 
 .blue, .ttt-row > .blue {
   background-color: #C0CBFF;
+}
+
+.tie-marker {
+  background: transparent;
+}
+
+@media all and (min-width: 40em) {
+  h1 {
+    position: fixed;
+    display: initial;
+    transform: rotate(90deg);
+    top: 2em;
+    left: -1.5em;
+  }
 }
