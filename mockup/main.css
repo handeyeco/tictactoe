@@ -1,0 +1,34 @@
+body {
+  background: pink;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+.ttt-selection {
+  margin-top: 1em;
+}
+
+.ttt-selection * {
+  margin: 0 0.5em;
+}
+
+.ttt-selection > .active,
+.ttt-square:focus {
+  outline: 1px dashed white;
+}
+
+button {
+  height: 1em;
+  width: 1em;
+  border: none;
+  background: white;
+}
+
+.green, .ttt-row > .green  {
+  background-color: #CBFFC0;
+}
+
+.blue, .ttt-row > .blue {
+  background-color: #C0CBFF;
+}
